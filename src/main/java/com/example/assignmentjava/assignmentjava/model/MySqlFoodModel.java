@@ -68,6 +68,7 @@ public class MySqlFoodModel implements FoodModel {
             preparedStatement.setInt(11, food.getUpdatedBy());
             preparedStatement.setInt(12, food.getDeletedBy());
             preparedStatement.setInt(13, food.getStatus().getValue());
+            preparedStatement.setInt(14, id);
             return preparedStatement.executeUpdate() > 0;
 
         }catch (SQLException e){
@@ -102,6 +103,7 @@ public class MySqlFoodModel implements FoodModel {
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()){
                 String name = rs.getString("name");
+                int categoryId = rs.getInt("categoryId");
                 String description = rs.getString("description");
                 String avatar = rs.getString("avatar");
                 Double price = rs.getDouble("price");
@@ -116,8 +118,22 @@ public class MySqlFoodModel implements FoodModel {
                 int updatedBy  = rs.getInt("updatedBy");
                 int deletedBy  = rs.getInt("deletedBy");
                 ObjectStatus status = ObjectStatus.values()[rs.getInt("status")];
-                Food product = new Food(id, name, description ,avatar, price,startDate, createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, status);
-                return product;
+                Food food = new Food();
+                food.setId(id);
+                food.setName(name);
+                food.setCategoryId(categoryId);
+                food.setDescription(description);
+                food.setAvatar(avatar);
+                food.setPrice(price);
+                food.setStartDate(startDate);
+                food.setCreatedAt(createdAt);
+                food.setUpdatedAt(updatedAt);
+                food.setDeletedAt(deletedAt);
+                food.setCreatedBy(createdBy);
+                food.setUpdatedBy(updatedBy);
+                food.setDeletedBy(deletedBy);
+                food.setStatus(status);
+                return food;
             }
 
         }catch (SQLException e){
@@ -138,6 +154,7 @@ public class MySqlFoodModel implements FoodModel {
             while (rs.next()){
                 int id = rs.getInt("id");
                 String name = rs.getString("name");
+                int categoryId = rs.getInt("categoryId");
                 String description = rs.getString("description");
                 String avatar = rs.getString("avatar");
                 Double price = rs.getDouble("price");
@@ -152,7 +169,21 @@ public class MySqlFoodModel implements FoodModel {
                 int updatedBy  = rs.getInt("updatedBy");
                 int deletedBy  = rs.getInt("deletedBy");
                 ObjectStatus status = ObjectStatus.values()[rs.getInt("status")];
-                Food food = new Food(id, name, description ,avatar, price,startDate, createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, status);
+                Food food = new Food();
+                food.setId(id);
+                food.setName(name);
+                food.setCategoryId(categoryId);
+                food.setDescription(description);
+                food.setAvatar(avatar);
+                food.setPrice(price);
+                food.setStartDate(startDate);
+                food.setCreatedAt(createdAt);
+                food.setUpdatedAt(updatedAt);
+                food.setDeletedAt(deletedAt);
+                food.setCreatedBy(createdBy);
+                food.setUpdatedBy(updatedBy);
+                food.setDeletedBy(deletedBy);
+                food.setStatus(status);
                 foods.add(food);
             }
 

@@ -6,7 +6,6 @@ public class SqlConstant {
     public static final String FOOD_UPDATE = "UPDATE foods SET name = ?, categoryId = ?, description = ?, avatar = ?, price = ?, startDate = ?," +
             "createdAt = ?, updatedAt = ?, deletedAt = ?, createdBy = ?, updatedBy = ?, deletedBy = ?, status = ? WHERE id = ?";
     public static final String FOOD_DELETE = "DELETE FROM foods WHERE id = ?";
-    public static final String FOOD_UPDATE_STATUS = "UPDATE foods SET status = ? WHERE id = ?";
     public static final String FOOD_FIND_BY_ID = "SELECT * FROM foods WHERE id = ? AND status = ?";
     public static final String FOOD_FIND_ALL = "SELECT * FROM foods WHERE status = ?";
 

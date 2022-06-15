@@ -1,9 +1,11 @@
 package com.example.assignmentjava.assignmentjava.entity;
 
 import com.example.assignmentjava.assignmentjava.entity.base.BaseEntity;
+import com.example.assignmentjava.assignmentjava.entity.entityEnum.FoodStatus;
 import com.example.assignmentjava.assignmentjava.entity.entityEnum.ObjectStatus;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
 public class Food extends BaseEntity {
     private int id;
@@ -14,6 +16,7 @@ public class Food extends BaseEntity {
     private double price;
     private LocalDateTime startDate;
     private ObjectStatus objectStatus;
+    private HashMap<String,String> errors;
 
 
     public Food() {
@@ -21,9 +24,10 @@ public class Food extends BaseEntity {
         this.description = "";
         this.avatar = "";
         this.price =0.0;
+        errors = new HashMap<>();
     }
 
-    public Food(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ObjectStatus status, int id, String name, int categoryId, String description, String avatar, double price, LocalDateTime startDate, ObjectStatus objectStatus) {
+    public Food(LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ObjectStatus status, int id, String name, int categoryId, String description, String avatar, double price, LocalDateTime startDate, FoodStatus foodStatus) {
         super(createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, status);
         this.id = id;
         this.name = name;
@@ -32,7 +36,7 @@ public class Food extends BaseEntity {
         this.avatar = avatar;
         this.price = price;
         this.startDate = startDate;
-        this.objectStatus = objectStatus;
+        errors = new HashMap<>();
     }
 
     public Food(int id, String name, int categoryId, String description, String avatar, double price, LocalDateTime startDate, ObjectStatus objectStatus) {
@@ -44,9 +48,12 @@ public class Food extends BaseEntity {
         this.price = price;
         this.startDate = startDate;
         this.objectStatus = objectStatus;
+        errors = new HashMap<>();
     }
 
-    public Food(int id, String name, String description, String avatar, Double price, LocalDateTime startDate, LocalDateTime createdAt, LocalDateTime updatedAt, LocalDateTime deletedAt, int createdBy, int updatedBy, int deletedBy, ObjectStatus status) {
+
+
+    public Food(String name, int categoryId, String description, String avatar, Double price, String startDate) {
     }
 
     public int getId() {
@@ -111,5 +118,19 @@ public class Food extends BaseEntity {
 
     public void setObjectStatus(ObjectStatus objectStatus) {
         this.objectStatus = objectStatus;
+    }
+
+    public HashMap<String, String> getErrors() {
+        return errors;
+    }
+    public boolean isValid() {
+        return this.checkValid();
+    }
+
+    public boolean checkValid() {
+        if(name == "" || name == null) {
+            errors.put("name", "Please enter name");
+        }
+        return errors.size() == 0;
     }
 }

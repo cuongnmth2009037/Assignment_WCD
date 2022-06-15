@@ -43,4 +43,38 @@
         <servlet-name>DeleteCategoryServlet</servlet-name>
         <url-pattern>/category/delete</url-pattern>
     </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>CreateFoodServlet</servlet-name>
+        <servlet-class>com.example.assignmentjava.assignmentjava.controller.food.CreateFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CreateFoodServlet</servlet-name>
+        <url-pattern>/food/create</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ListFoodServlet</servlet-name>
+        <servlet-class>com.example.assignmentjava.assignmentjava.controller.food.ListFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListFoodServlet</servlet-name>
+        <url-pattern>/food/list</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UpdateFoodServlet</servlet-name>
+        <servlet-class>com.example.assignmentjava.assignmentjava.controller.food.UpdateFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateFoodServlet</servlet-name>
+        <url-pattern>/food/update</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>DeleteFoodServlet</servlet-name>
+        <servlet-class>com.example.assignmentjava.assignmentjava.controller.food.DeleteFoodServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteFoodServlet</servlet-name>
+        <url-pattern>/food/delete</url-pattern>
+    </servlet-mapping>
 </web-app>
