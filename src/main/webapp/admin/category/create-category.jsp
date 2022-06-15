@@ -1,8 +1,28 @@
+<%@ page import="java.util.HashMap" %>
+<%@ page import="com.example.assignmentjava.assignmentjava.entity.Food" %>
+<%@ page import="com.example.assignmentjava.assignmentjava.entity.Category" %>
 <!DOCTYPE html>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <jsp:include page="/admin/includes/head.jsp"/>
+<head>
+    <style>
+        .invalid-feedback {
+            color: red;
+        }
+    </style>
+</head>
 <body>
+<%
+    HashMap<String, String> errors = (HashMap<String, String>) request.getAttribute("errors");
+    if(errors == null) {
+        errors = new HashMap<>();
+    }
+    Category category = (Category) request.getAttribute("category");
+    if(category == null) {
+        category = new Category();
+    }
+%>
 <div class="wrapper">
     <div class="main-header">
         <!-- Logo Header -->
@@ -49,25 +69,34 @@
             <div class="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-title">Category</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 col-lg-4">
-                                        <div class="form-group">
-                                            <label>Name</label>
-                                            <input class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card-action">
-                                <button class="btn btn-success">Submit</button>
-                                <button class="btn btn-danger">Cancel</button>
-                            </div>
-                        </div>
+                           <div class="card">
+                               <div class="card-header">
+                                   <div class="card-title">Category</div>
+                               </div>
+                               <form action="/category/create" method="post">
+                               <div class="card-body">
+                                   <div class="row">
+                                       <div class="col-md-6 col-lg-4">
+                                           <div class="form-group">
+                                               <label>Name</label>
+                                               <input id="name" class="form-control" name="name" value="<%= category.getName() %>" type="text">
+                                               <%
+                                                   if(errors.containsKey("name"))   {
+                                               %>
+                                               <div class="invalid-feedback">
+                                                   <%= errors.get("name")%>
+                                               </div>
+                                               <% } %>
+                                               <div class="card-action">
+                                                   <button class="btn btn-success" type="submit">Submit</button>
+                                                   <button class="btn btn-danger" type="reset">Reset</button>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                               </form>
+                           </div>
                     </div>
                 </div>
             </div>

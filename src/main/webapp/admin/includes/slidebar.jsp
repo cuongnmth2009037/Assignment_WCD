@@ -95,109 +95,13 @@
           <div class="collapse" id="forms1">
             <ul class="nav nav-collapse">
               <li>
-                <a href="forms/forms.html">
+                <a href="/category/create">
                   <span class="sub-item">Tạo mới</span>
                 </a>
               </li>
               <li>
-                <a href="forms/forms.html">
+                <a href="/category/list">
                   <span class="sub-item">Danh sách</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="collapse" href="#forms2">
-            <i class="fas fa-pen-square"></i>
-            <p>Quản lý đơn hàng</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse" id="forms2">
-            <ul class="nav nav-collapse">
-              <li>
-                <a href="forms/forms.html">
-                  <span class="sub-item">Basic Form</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="collapse" href="#forms3">
-            <i class="fas fa-pen-square"></i>
-            <p>Quản lý tin tức</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse" id="forms3">
-            <ul class="nav nav-collapse">
-              <li>
-                <a href="forms/forms.html">
-                  <span class="sub-item">Basic Form</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="collapse" href="#forms4">
-            <i class="fas fa-pen-square"></i>
-            <p>Quản lý người dùng</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse" id="forms4">
-            <ul class="nav nav-collapse">
-              <li>
-                <a href="forms/forms.html">
-                  <span class="sub-item">Basic Form</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="collapse" href="#forms5">
-            <i class="fas fa-pen-square"></i>
-            <p>Quản lý kho</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse" id="forms5">
-            <ul class="nav nav-collapse">
-              <li>
-                <a href="forms/forms.html">
-                  <span class="sub-item">Basic Form</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="collapse" href="#forms6">
-            <i class="fas fa-pen-square"></i>
-            <p>Quản lý feedback</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse" id="forms6">
-            <ul class="nav nav-collapse">
-              <li>
-                <a href="forms/forms.html">
-                  <span class="sub-item">Basic Form</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a data-toggle="collapse" href="#forms7">
-            <i class="fas fa-pen-square"></i>
-            <p>Thống kê báo cáo</p>
-            <span class="caret"></span>
-          </a>
-          <div class="collapse" id="forms7">
-            <ul class="nav nav-collapse">
-              <li>
-                <a href="forms/forms.html">
-                  <span class="sub-item">Basic Form</span>
                 </a>
               </li>
             </ul>

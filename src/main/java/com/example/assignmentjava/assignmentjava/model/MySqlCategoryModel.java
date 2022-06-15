@@ -22,18 +22,15 @@ public class MySqlCategoryModel implements CategoryModel{
             preparedStatement.setString(1, category.getName());
             preparedStatement.setString(2, category.getCreatedAt().toString());
             preparedStatement.setString(3, category.getUpdatedAt().toString());
-            preparedStatement.setInt(4, category.getCreatedBy());
-            preparedStatement.setInt(5, category.getUpdatedBy());
-            preparedStatement.setInt(6, category.getStatus().getValue());
             if (category.getDeletedAt() != null){
-                preparedStatement.setString(7, category.getDeletedAt().toString());
+                preparedStatement.setString(4, category.getDeletedAt().toString());
             }else {
-                preparedStatement.setString(7, null);
+                preparedStatement.setString(4, null);
             }
-            preparedStatement.setInt(8, category.getCreatedBy());
-            preparedStatement.setInt(9, category.getUpdatedBy());
-            preparedStatement.setInt(10, category.getDeletedBy());
-            preparedStatement.setInt(11, category.getStatus().getValue());
+            preparedStatement.setInt(5, category.getCreatedBy());
+            preparedStatement.setInt(6, category.getUpdatedBy());
+            preparedStatement.setInt(7, category.getDeletedBy());
+            preparedStatement.setInt(8, category.getStatus().getValue());
             return preparedStatement.executeUpdate() > 0;
         }catch (SQLException e){
             e.printStackTrace();
@@ -48,22 +45,19 @@ public class MySqlCategoryModel implements CategoryModel{
             Connection connection = ConnectionHelper.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(SqlConstant.CATEGORY_UPDATE);
             preparedStatement.setString(1, category.getName());
-            preparedStatement.setString(2, category.getUpdatedAt().toString());
-            preparedStatement.setInt(3, category.getUpdatedBy());
-            preparedStatement.setInt(4, category.getStatus().getValue());
-            preparedStatement.setInt(5, id);
+            preparedStatement.setString(2, category.getCreatedAt().toString());
+            preparedStatement.setString(3, category.getUpdatedAt().toString());
             if (category.getDeletedAt() != null){
-                preparedStatement.setString(6, category.getDeletedAt().toString());
+                preparedStatement.setString(4, category.getDeletedAt().toString());
             }else {
-                preparedStatement.setString(6, null);
+                preparedStatement.setString(4, null);
             }
-            preparedStatement.setInt(7, category.getCreatedBy());
-            preparedStatement.setInt(8, category.getUpdatedBy());
-            preparedStatement.setInt(9, category.getDeletedBy());
-            preparedStatement.setInt(10, category.getStatus().getValue());
-            preparedStatement.setInt(11, id);
+            preparedStatement.setInt(5, category.getCreatedBy());
+            preparedStatement.setInt(6, category.getUpdatedBy());
+            preparedStatement.setInt(7, category.getDeletedBy());
+            preparedStatement.setInt(8, category.getStatus().getValue());
+            preparedStatement.setInt(9,id);
             return preparedStatement.executeUpdate() > 0;
-
         }catch (SQLException e){
             e.printStackTrace();
             System.out.println(e);
@@ -80,7 +74,6 @@ public class MySqlCategoryModel implements CategoryModel{
             preparedStatement.setInt(2, id);
             preparedStatement.execute();
             return true;
-
         }catch (SQLException e){
             System.err.println(e.getMessage());
             e.printStackTrace();
@@ -108,7 +101,16 @@ public class MySqlCategoryModel implements CategoryModel{
                 int updatedBy  = rs.getInt("updatedBy");
                 int deletedBy  = rs.getInt("deletedBy");
                 ObjectStatus status = ObjectStatus.values()[rs.getInt("status")];
-                Category category = new Category(id, name, createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, status);
+                Category category = new Category();
+                category.setId(id);
+                category.setName(name);
+                category.setCreatedAt(createdAt);
+                category.setUpdatedAt(updatedAt);
+                category.setDeletedAt(deletedAt);
+                category.setCreatedBy(createdBy);
+                category.setUpdatedBy(updatedBy);
+                category.setDeletedBy(deletedBy);
+                category.setStatus(status);
                 return category;
             }
         }catch (SQLException e){
@@ -139,7 +141,11 @@ public class MySqlCategoryModel implements CategoryModel{
                 int updatedBy = rs.getInt("updatedBy");
                 int deletedBy = rs.getInt("deletedBy");
                 ObjectStatus status = ObjectStatus.of(rs.getInt("status"));
-                Category category = new Category(id, name, createdAt, updatedAt, deletedAt, createdBy, updatedBy, deletedBy, status);
+                Category category = new Category();
+                category.setId(id);
+                category.setName(name);
+                category.setCreatedAt(createdAt);
+                category.setUpdatedAt(updatedAt);
                 categories.add(category);
             }
         }catch (SQLException e){

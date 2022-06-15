@@ -30,11 +30,11 @@ public class CreateCategoryServlet extends HttpServlet {
         Category category = new Category(name);
         if(category.isValid()) {
             mySqlCategoryModel.save(category);
-            resp.sendRedirect("/product/list");
+            resp.sendRedirect("/category/list");
         }else {
             req.setAttribute("errors", category.getErrors());
-            req.setAttribute("product", category);
-            req.getRequestDispatcher("/category/create.jsp").forward(req,resp);
+            req.setAttribute("category", category);
+            req.getRequestDispatcher("/admin/category/create-category.jsp").forward(req,resp);
         }
     }
 }
